@@ -1,0 +1,23 @@
+
+<h1>Hello Here? These are my Quotes of 2019.</h1>
+<p>Quotes motivate people in life while others help people to <em>Think INSIDE the box.</em>  Please feel free to add your quote by filling in the form below.
+     Do not forget to upvote or downvote a quote. </p>
+<hr>
+
+<ul>
+    <div class="row" >       
+            <app-quote-form (addQuote)="addNewQuote($event)"></app-quote-form>
+                          
+    </div>
+    <div class="container">
+        <div class="row" *ngFor='let quote of quotes; let i=index'>
+                    <li> {{quote.name}} published on {{quote.publishDate |date}} </li>
+                    <hr>            
+                    <button class="btn btn-success" (click)='quoteDetails(i)'>Quote Details</button>
+                    <app-quote-details *ngIf="quote.showDescription" [quote]='quote' (likeQuote)='quoteLike($event, i)' (dislikeQuote)='quoteDislike($event, i)'(removeQuote)='deleteQuote($event, i)'></app-quote-details>
+        </div>  
+       
+
+    </div>
+   
+</ul>
