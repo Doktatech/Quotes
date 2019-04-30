@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ElementRef} from '@angular/core';
 import { Quote } from '../quote'
 
 @Component({
@@ -8,10 +8,10 @@ import { Quote } from '../quote'
 })
 export class QuoteComponent implements OnInit {
   quotes=[
-    new Quote("Rewel",'"Think Inside the box"',"Author:Rewel",0,0, new Date (2019,3,14)),
-    new Quote("Rewel",'"A stitch in time saves nine"','Author:Adan Hamad',0,0,new Date (1957,3,14)),
-    new Quote("Rewel",'"Concentration is the root to all human abilities"','Author:Bruce Lee',0,0,new Date (1983,6,20)),
-    new Quote("Rewel",'"Religion is the opium of the masses"','Author:Kipkorir',0,0,new Date (2017,11,27))
+    new Quote("Rewel","Leave one wolf alive and the sheep are never safe","Arya Stark",0,0, new Date (2017,7,14)),
+    new Quote("Rewel","Every man gotta right to decide his own destiny",'Bob Marley',0,0,new Date (1979,3,14)),
+    new Quote("Rewel","Concentration is the root to all human abilities",'Bruce Lee',0,0,new Date (1983,6,20)),
+    new Quote("Rewel","Religion is the opium of the masses",'Karl Max',0,0,new Date (2017,11,27))
     
   ]
   addNewQuote(quote){
@@ -35,13 +35,14 @@ export class QuoteComponent implements OnInit {
   }
   quoteDislike(dislikeQuote, index){
     if(dislikeQuote){
-      this.quotes[index].dislike -= 1;
+      this.quotes[index].dislike += 1;
     }
   }
   quoteDetails(index){
     this.quotes[index].showDescription=!this.quotes[index].showDescription;
   }
   constructor() { }
+  
 
   ngOnInit() {
   }

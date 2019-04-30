@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component,ElementRef } from '@angular/core';
 import {  Quote} from "./quote";
 @Component({
   selector: 'app-root',
@@ -7,4 +7,6 @@ import {  Quote} from "./quote";
 })
 export class AppComponent {
   title = 'Quotes';
+  constructor() { }
+ 
 }
